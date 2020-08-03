@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Effect\Ef_WaterWave.cs" />
+    <Compile Include="Assets\Scripts\GunFollow.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/summer/Desktop/Summer/workplace/test/FishMaster/FishMasterDemo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
