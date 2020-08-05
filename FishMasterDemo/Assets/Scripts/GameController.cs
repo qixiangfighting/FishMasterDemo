@@ -8,7 +8,15 @@ public class GameController : MonoBehaviour
 {
     public GameObject[] gunGos;
 
+    public int lv = 0;
     public Text oneShootCostText;
+
+    public GameObject[] bullet1Gos;
+    public GameObject[] bullet2Gos;
+    public GameObject[] bullet3Gos;
+    public GameObject[] bullet4Gos;
+
+    public GameObject[] bullet5Gos;
 
     // 使用的是第几挡炮弹
     private int costIndex = 0;
@@ -51,6 +59,38 @@ public class GameController : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             OnButtonPDown();
+        }
+    }
+
+    void Fire()
+    {
+        // 那组子弹
+        GameObject[] useBullets;
+        //组里面哪一个子弹
+        int bulletIndex;
+        if (Input.GetMouseButtonDown(0))
+        {
+            switch (costIndex / 4)
+            {
+                case 0:
+                    useBullets = bullet1Gos;
+                    break;
+                case 1:
+                    useBullets = bullet2Gos;
+                    break;
+                case 2:
+                    useBullets = bullet3Gos;
+                    break;
+                case 3:
+                    useBullets = bullet4Gos;
+                    break;
+                case 4:
+                    useBullets = bullet5Gos;
+                    break;
+            }
+
+            bulletIndex = (lv % 10 >= 9) ? 9 : lv % 10;
+            
         }
     }
 }
