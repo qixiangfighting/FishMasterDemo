@@ -29,6 +29,13 @@ public class GameController : MonoBehaviour
     public Button settingButton;
     public Slider expSlider;
 
+    public GameObject lvUpTips;
+
+    public GameObject fireEffect;
+    public GameObject changeEffect;
+    public GameObject lvEffect;
+    public GameObject goldEffect;
+
     public int lv = 0;
     public int exp = 0;
     public int gold = 500;
@@ -95,6 +102,11 @@ public class GameController : MonoBehaviour
         while (exp >= 1000 + 200 * lv)
         {
             lv++;
+            lvUpTips.SetActive(true);
+            lvUpTips.transform.Find("Text").GetComponent<Text>().text = lv.ToString();
+            StartCoroutine(lvUpTips.GetComponent<Ef_HideSelf>().HideSelf(0.6f));
+            Instantiate(lvEffect);
+
             exp = exp - (1000 + 200 * lv);
         }
 
@@ -126,6 +138,9 @@ public class GameController : MonoBehaviour
     {
         gunGos[costIndex / 4].SetActive(false);
         costIndex++;
+
+        Instantiate(changeEffect);
+
         costIndex = (costIndex > oneShootCosts.Length - 1) ? 0 : costIndex;
         gunGos[costIndex / 4].SetActive(true);
         oneShootCostText.text = "$" + oneShootCosts[costIndex];
@@ -135,6 +150,9 @@ public class GameController : MonoBehaviour
     {
         gunGos[costIndex / 4].SetActive(false);
         costIndex--;
+
+        Instantiate(changeEffect);
+
         costIndex = (costIndex < 0) ? oneShootCosts.Length - 1 : costIndex;
         gunGos[costIndex / 4].SetActive(true);
         oneShootCostText.text = "$" + oneShootCosts[costIndex];
@@ -186,6 +204,8 @@ public class GameController : MonoBehaviour
 
                 gold -= oneShootCosts[costIndex];
 
+                Instantiate(fireEffect);
+
                 GameObject bullet = Instantiate(useBullets[bulletIndex]);
                 bullet.transform.SetParent(bulletHolder, false);
                 bullet.transform.position = gunGos[costIndex / 4].transform.Find("FirePos").transform.position;
@@ -220,6 +240,9 @@ public class GameController : MonoBehaviour
     public void OnBigCountdownButtonDown()
     {
         gold += 50;
+
+        Instantiate(goldEffect);
+
         bigCountdownButton.gameObject.SetActive(false );
         bigCountdownText.gameObject.SetActive(true);
         bigTimer = bigCountdown;
