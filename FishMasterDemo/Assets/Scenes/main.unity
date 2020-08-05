@@ -1339,6 +1339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 384542545}
   - component: {fileID: 384542546}
+  - component: {fileID: 384542547}
   m_Layer: 0
   m_Name: 5Gun
   m_TagString: Untagged
@@ -1411,6 +1412,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &384542547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384542544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714a4ae88758e4388a8fd1eb4c1f0594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UGUICanva: {fileID: 120836491}
+  mainCamera: {fileID: 224967798}
 --- !u!1 &396024685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,6 +2176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 651802892}
   - component: {fileID: 651802893}
+  - component: {fileID: 651802894}
   m_Layer: 0
   m_Name: 1000Gun
   m_TagString: Untagged
@@ -2236,6 +2252,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &651802894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651802891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714a4ae88758e4388a8fd1eb4c1f0594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UGUICanva: {fileID: 120836491}
+  mainCamera: {fileID: 224967798}
 --- !u!1 &652571351
 GameObject:
   m_ObjectHideFlags: 0
@@ -3820,6 +3850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1084412808}
   - component: {fileID: 1084412809}
+  - component: {fileID: 1084412810}
   m_Layer: 0
   m_Name: 4Gun
   m_TagString: Untagged
@@ -3893,6 +3924,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1084412810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084412807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714a4ae88758e4388a8fd1eb4c1f0594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UGUICanva: {fileID: 120836491}
+  mainCamera: {fileID: 224967798}
 --- !u!4 &1084686612 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: ed85fee4b3a267f49914c3d07c7ab0e2,
