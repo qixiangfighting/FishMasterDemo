@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+
 public class GameController : MonoBehaviour
 {
     private static GameController _instance;
@@ -36,6 +37,7 @@ public class GameController : MonoBehaviour
     public float bigTimer = bigCountdown;
     public float smallTimer = smallCountdown;
 
+    public Color goldColor;
 
     public Text oneShootCostText;
 
@@ -159,39 +161,61 @@ public class GameController : MonoBehaviour
         int bulletIndex;
         if (Input.GetMouseButtonDown(0) && EventSystem.current.IsPointerOverGameObject() == false)
         {
-            switch (costIndex / 4)
+            if (gold - oneShootCosts[costIndex] >0)
             {
-                case 0:
-                    useBullets = bullet1Gos;
-                    break;
-                case 1:
-                    useBullets = bullet2Gos;
-                    break;
-                case 2:
-                    useBullets = bullet3Gos;
-                    break;
-                case 3:
-                    useBullets = bullet4Gos;
-                    break;
-                case 4:
-                    useBullets = bullet5Gos;
-                    break;
+                switch (costIndex / 4)
+                {
+                    case 0:
+                        useBullets = bullet1Gos;
+                        break;
+                    case 1:
+                        useBullets = bullet2Gos;
+                        break;
+                    case 2:
+                        useBullets = bullet3Gos;
+                        break;
+                    case 3:
+                        useBullets = bullet4Gos;
+                        break;
+                    case 4:
+                        useBullets = bullet5Gos;
+                        break;
+                }
+
+                bulletIndex = (lv % 10 >= 9) ? 9 : lv % 10;
+
+                gold -= oneShootCosts[costIndex];
+
+                GameObject bullet = Instantiate(useBullets[bulletIndex]);
+                bullet.transform.SetParent(bulletHolder, false);
+                bullet.transform.position = gunGos[costIndex / 4].transform.Find("FirePos").transform.position;
+                bullet.transform.rotation = gunGos[costIndex / 4].transform.Find("FirePos").transform.rotation;
+
+                bullet.GetComponent<BulletAttr>().damage = oneShootCosts[costIndex];
+                bullet.AddComponent<Ef_AutoMove>().Dir = Vector3.up;
+                bullet.GetComponent<Ef_AutoMove>().speed = bullet.GetComponent<BulletAttr>().speed;
+
+            }
+            else
+            {
+                //钱不够 闪动
+                StartCoroutine(GoldNotEnough());
             }
 
-            bulletIndex = (lv % 10 >= 9) ? 9 : lv % 10;
 
-            GameObject bullet = Instantiate(useBullets[bulletIndex]);
-            bullet.transform.SetParent(bulletHolder, false);
-            bullet.transform.position = gunGos[costIndex / 4].transform.Find("FirePos").transform.position;
-            bullet.transform.rotation = gunGos[costIndex / 4].transform.Find("FirePos").transform.rotation;
 
-            bullet.GetComponent<BulletAttr>().damage = oneShootCosts[costIndex];
-            bullet.AddComponent<Ef_AutoMove>().Dir = Vector3.up;
-            bullet.GetComponent<Ef_AutoMove>().speed = bullet.GetComponent<BulletAttr>().speed;
+
         }
     }
 
 
+    IEnumerator GoldNotEnough()
+    {
+        // goldColor = goldText.color;
+        goldText.color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        goldText.color = Color.yellow;
+    }
 
     public void OnBigCountdownButtonDown()
     {
