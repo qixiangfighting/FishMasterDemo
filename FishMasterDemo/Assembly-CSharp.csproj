@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Effect\Ef_AutoRotate.cs" />
     <Compile Include="Assets\Scripts\Effect\Ef_DestorySelf.cs" />
     <Compile Include="Assets\Scripts\Effect\Ef_MoveTo.cs" />
+    <Compile Include="Assets\Scripts\Effect\Ef_PlayEffect.cs" />
     <Compile Include="Assets\Scripts\Effect\Ef_WaterWave.cs" />
     <Compile Include="Assets\Scripts\FishAttr.cs" />
     <Compile Include="Assets\Scripts\FishMaker.cs" />

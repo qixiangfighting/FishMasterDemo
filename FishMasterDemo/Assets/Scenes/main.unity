@@ -3615,8 +3615,8 @@ MonoBehaviour:
   lv: 0
   exp: 0
   gold: 99999
-  bigTimer: 10
-  smallTimer: 2
+  bigTimer: 240
+  smallTimer: 60
   goldColor: {r: 1, g: 0.87058824, b: 0.101960786, a: 0}
   oneShootCostText: {fileID: 1195081388}
   bulletHolder: {fileID: 1151825020}
