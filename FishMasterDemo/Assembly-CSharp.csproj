@@ -67,10 +67,12 @@
     <Compile Include="Assets\Scripts\Effect\Ef_AutoMove.cs" />
     <Compile Include="Assets\Scripts\Effect\Ef_AutoRotate.cs" />
     <Compile Include="Assets\Scripts\Effect\Ef_DestorySelf.cs" />
+    <Compile Include="Assets\Scripts\Effect\Ef_MoveTo.cs" />
     <Compile Include="Assets\Scripts\Effect\Ef_WaterWave.cs" />
     <Compile Include="Assets\Scripts\FishAttr.cs" />
     <Compile Include="Assets\Scripts\FishMaker.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\GoldCollect.cs" />
     <Compile Include="Assets\Scripts\GunFollow.cs" />
     <Compile Include="Assets\Scripts\WebAttr.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

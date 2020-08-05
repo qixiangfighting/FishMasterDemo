@@ -120,6 +120,7 @@ MonoBehaviour:
   hp: 1500
   exp: 1500
   gold: 1000
+  goldPrefab: {fileID: 1125591468603502, guid: f5badb5f84f284d418a118099b071b24, type: 3}
 --- !u!61 &61986294828436782
 BoxCollider2D:
   m_ObjectHideFlags: 0
