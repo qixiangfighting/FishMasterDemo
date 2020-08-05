@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\FishMaker.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GunFollow.cs" />
+    <Compile Include="Assets\Scripts\WebAttr.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/summer/Desktop/Summer/workplace/test/FishMaster/FishMasterDemo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

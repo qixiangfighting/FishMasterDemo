@@ -25,6 +25,7 @@ public class BulletAttr : MonoBehaviour
             GameObject web = Instantiate(webPrefab);
             web.transform.SetParent(gameObject.transform.parent, false);
             web.transform.position = gameObject.transform.position;
+            web.GetComponent<WebAttr>().damage = damage;
             Destroy(gameObject);
         }
     }

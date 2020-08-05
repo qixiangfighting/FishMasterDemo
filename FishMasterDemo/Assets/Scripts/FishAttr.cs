@@ -15,4 +15,10 @@ public class FishAttr : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void TakeDamage(int value)
+    {
+
+
+    }
 }
