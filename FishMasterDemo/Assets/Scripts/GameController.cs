@@ -2,15 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     public GameObject[] gunGos;
 
+
     public int lv = 0;
     public Text oneShootCostText;
 
+    public Transform bulletHolder;
     public GameObject[] bullet1Gos;
     public GameObject[] bullet2Gos;
     public GameObject[] bullet3Gos;
@@ -28,6 +31,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
+        Fire();
         ChangeBulletCost();
     }
 
@@ -65,10 +69,10 @@ public class GameController : MonoBehaviour
     void Fire()
     {
         // 那组子弹
-        GameObject[] useBullets;
+        GameObject[] useBullets = bullet5Gos;
         //组里面哪一个子弹
         int bulletIndex;
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && EventSystem.current.IsPointerOverGameObject()==false)
         {
             switch (costIndex / 4)
             {
@@ -90,7 +94,15 @@ public class GameController : MonoBehaviour
             }
 
             bulletIndex = (lv % 10 >= 9) ? 9 : lv % 10;
-            
+
+            GameObject bullet = Instantiate(useBullets[bulletIndex]);
+            bullet.transform.SetParent(bulletHolder, false);
+            bullet.transform.position = gunGos[costIndex / 4].transform.Find("FirePos").transform.position;
+            bullet.transform.rotation = gunGos[costIndex / 4].transform.Find("FirePos").transform.rotation;
+
+            bullet.GetComponent<BulletAttr>().damage = oneShootCosts[costIndex];
+            bullet.AddComponent<Ef_AutoMove>().Dir = Vector3.up;
+            bullet.GetComponent<Ef_AutoMove>().speed = bullet.GetComponent<BulletAttr>().speed;
         }
     }
 }
