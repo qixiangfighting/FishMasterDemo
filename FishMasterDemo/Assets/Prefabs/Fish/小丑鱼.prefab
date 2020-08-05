@@ -118,6 +118,8 @@ MonoBehaviour:
   maxSpeed: 8
   diePrefab: {fileID: 1289155893842330, guid: d292eb6eeadd672428d7d69d1643fcd1, type: 3}
   hp: 28
+  exp: 10
+  gold: 5
 --- !u!61 &61928162890597890
 BoxCollider2D:
   m_ObjectHideFlags: 0

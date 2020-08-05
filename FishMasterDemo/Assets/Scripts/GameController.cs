@@ -9,8 +9,25 @@ public class GameController : MonoBehaviour
 {
     public GameObject[] gunGos;
 
+    public Text goldText;
+    public Text lvText;
+    public Text lvNameText;
+    public Text smallCountdownText;
+    public Text bigCountdownText;
+    public Button bigCountdownButton;
+    public Button backButton;
+    public Button settingButton;
+    public Slider expSlider;
 
     public int lv = 0;
+    public int exp = 0;
+    public int gold = 500;
+    public const int bigCountdown = 240;
+    public const int smallCountdown = 60;
+    public float bigTimer = bigCountdown;
+    public float smallTimer = smallCountdown;
+
+
     public Text oneShootCostText;
 
     public Transform bulletHolder;
@@ -29,10 +46,64 @@ public class GameController : MonoBehaviour
         {5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
 
 
+    private string[] lvName = {"新手", "入门", "钢铁", "青铜", " 白银", "黄金", "白金", "钻石", "大师", "宗师"};
+
+    private void Start()
+    {
+        bigTimer = bigCountdown;
+        smallTimer = smallCountdown;
+    }
+
+    void UpdateUI()
+    {
+
+        var dd = Time.deltaTime;
+        bigTimer = bigTimer - dd ;
+        smallTimer  = smallTimer - Time.deltaTime;
+
+        if (smallTimer <=0)
+        {
+            smallTimer = smallCountdown;
+            gold += 50;
+        }
+
+        if (bigTimer <=0 && bigCountdownButton.gameObject.activeSelf == false)
+        {
+            bigCountdownText.gameObject.SetActive(false);
+            bigCountdownButton.gameObject.SetActive(true);
+        }
+
+
+        // 经验等级计算方式：升级所需经验 = 1000+200*当前等级
+
+        while (exp >= 1000 + 200 * lv)
+        {
+            lv++;
+            exp = exp - (1000 + 200 * lv);
+        }
+
+        goldText.text = "$" + gold;
+        lvText.text = lv.ToString();
+
+        if ((lv / 10) <= 9)
+        {
+            lvNameText.text = lvName[lv / 10];
+        }
+        else
+        {
+            lvNameText.text = lvName[9];
+        }
+
+        smallCountdownText.text = "  " + (int) smallTimer / 10 + "  " + (int)smallTimer % 10;
+        bigCountdownText.text = (int)bigTimer + "s";
+        expSlider.value = ((float)exp)/(1000+200*lv);
+    }
+
     private void Update()
     {
-        Fire();
         ChangeBulletCost();
+        Fire();
+        UpdateUI();
     }
 
     public void OnButtonPDown()
@@ -72,7 +143,7 @@ public class GameController : MonoBehaviour
         GameObject[] useBullets = bullet5Gos;
         //组里面哪一个子弹
         int bulletIndex;
-        if (Input.GetMouseButtonDown(0) && EventSystem.current.IsPointerOverGameObject()==false)
+        if (Input.GetMouseButtonDown(0) && EventSystem.current.IsPointerOverGameObject() == false)
         {
             switch (costIndex / 4)
             {

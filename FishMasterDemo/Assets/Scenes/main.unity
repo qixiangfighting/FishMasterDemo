@@ -3499,7 +3499,20 @@ MonoBehaviour:
   - {fileID: 1084412807}
   - {fileID: 384542544}
   - {fileID: 651802891}
+  goldText: {fileID: 534409050}
+  lvText: {fileID: 1165192356}
+  lvNameText: {fileID: 1162131297}
+  smallCountdownText: {fileID: 501304954}
+  bigCountdownText: {fileID: 1393725129}
+  bigCountdownButton: {fileID: 880528193}
+  backButton: {fileID: 632409795}
+  settingButton: {fileID: 1593316433}
+  expSlider: {fileID: 1136218965}
   lv: 0
+  exp: 0
+  gold: 500
+  bigTimer: 0
+  smallTimer: 0
   oneShootCostText: {fileID: 1195081388}
   bulletHolder: {fileID: 1151825020}
   bullet1Gos:
@@ -4635,7 +4648,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $1000
+  m_Text: $5
 --- !u!222 &1195081389
 CanvasRenderer:
   m_ObjectHideFlags: 0

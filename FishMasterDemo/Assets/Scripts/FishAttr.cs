@@ -11,6 +11,8 @@ public class FishAttr : MonoBehaviour
     public GameObject diePrefab;
     public int hp;
 
+    public int exp;
+    public int gold;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Border")
