@@ -2782,6 +2782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 714173083}
   - component: {fileID: 714173085}
+  - component: {fileID: 714173086}
   - component: {fileID: 714173084}
   m_Layer: 5
   m_Name: LvUpTips
@@ -2845,6 +2846,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714173082}
   m_CullTransparentMesh: 0
+--- !u!114 &714173086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714173082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0763b9c06ca847fe99572e77c77c1b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &735597425 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: ed85fee4b3a267f49914c3d07c7ab0e2,
