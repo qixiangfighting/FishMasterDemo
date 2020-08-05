@@ -7,6 +7,15 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+    private static GameController _instance;
+
+    public static GameController Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
     public GameObject[] gunGos;
 
     public Text goldText;
@@ -48,10 +57,15 @@ public class GameController : MonoBehaviour
 
     private string[] lvName = {"新手", "入门", "钢铁", "青铜", " 白银", "黄金", "白金", "钻石", "大师", "宗师"};
 
+    private void Awake()
+    {
+        _instance = this;
+    }
+
     private void Start()
     {
-        bigTimer = bigCountdown;
-        smallTimer = smallCountdown;
+        // bigTimer = bigCountdown;
+        // smallTimer = smallCountdown;
     }
 
     void UpdateUI()
@@ -176,4 +190,15 @@ public class GameController : MonoBehaviour
             bullet.GetComponent<Ef_AutoMove>().speed = bullet.GetComponent<BulletAttr>().speed;
         }
     }
+
+
+
+    public void OnBigCountdownButtonDown()
+    {
+        gold += 50;
+        bigCountdownButton.gameObject.SetActive(false );
+        bigCountdownText.gameObject.SetActive(true);
+        bigTimer = bigCountdown;
+    }
+
 }
