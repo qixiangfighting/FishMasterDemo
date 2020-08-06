@@ -44,6 +44,8 @@ public class FishAttr : MonoBehaviour
 
             if (gameObject.GetComponent<Ef_PlayEffect>() != null)
             {
+                AudioManager.Instance.PlayEffectSound(AudioManager.Instance.rewardClip);
+
                 gameObject.GetComponent<Ef_PlayEffect>().PlayEffect();
             }
 

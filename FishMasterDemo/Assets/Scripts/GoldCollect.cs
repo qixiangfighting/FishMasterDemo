@@ -9,6 +9,8 @@ public class GoldCollect : MonoBehaviour
     {
         if (collision.tag == "Gold")
         {
+            AudioManager.Instance.PlayEffectSound(AudioManager.Instance.goldClip);
+
             Destroy(collision.gameObject);
         }
     }

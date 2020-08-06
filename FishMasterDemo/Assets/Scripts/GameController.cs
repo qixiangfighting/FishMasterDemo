@@ -89,6 +89,7 @@ public class GameController : MonoBehaviour
         if (bgIndex != lv / 20)
         {
             bgIndex = lv / 20;
+            AudioManager.Instance.PlayEffectSound(AudioManager.Instance.seaWaveClip);
             Instantiate(seaWaveEffect);
 
             if (bgIndex >= 3)
@@ -131,6 +132,9 @@ public class GameController : MonoBehaviour
             lvUpTips.SetActive(true);
             lvUpTips.transform.Find("Text").GetComponent<Text>().text = lv.ToString();
             StartCoroutine(lvUpTips.GetComponent<Ef_HideSelf>().HideSelf(0.6f));
+
+            AudioManager.Instance.PlayEffectSound(AudioManager.Instance.lvUpClip);
+
             Instantiate(lvEffect);
         }
 
@@ -164,6 +168,8 @@ public class GameController : MonoBehaviour
         gunGos[costIndex / 4].SetActive(false);
         costIndex++;
 
+        AudioManager.Instance.PlayEffectSound(AudioManager.Instance.changeClip);
+
         Instantiate(changeEffect);
 
         costIndex = (costIndex > oneShootCosts.Length - 1) ? 0 : costIndex;
@@ -175,6 +181,7 @@ public class GameController : MonoBehaviour
     {
         gunGos[costIndex / 4].SetActive(false);
         costIndex--;
+        AudioManager.Instance.PlayEffectSound(AudioManager.Instance.changeClip);
 
         Instantiate(changeEffect);
 
@@ -228,6 +235,7 @@ public class GameController : MonoBehaviour
                 bulletIndex = (lv % 10 >= 9) ? 9 : lv % 10;
 
                 gold -= oneShootCosts[costIndex];
+                AudioManager.Instance.PlayEffectSound(AudioManager.Instance.fireClip);
 
                 Instantiate(fireEffect);
 
@@ -265,6 +273,7 @@ public class GameController : MonoBehaviour
     public void OnBigCountdownButtonDown()
     {
         gold += 50;
+        AudioManager.Instance.PlayEffectSound(AudioManager.Instance.rewardClip);
 
         Instantiate(goldEffect);
 

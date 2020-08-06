@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\BulletAttr.cs" />
     <Compile Include="Assets\Scripts\Effect\Ef_AutoMove.cs" />
     <Compile Include="Assets\Scripts\Effect\Ef_AutoRotate.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GoldCollect.cs" />
     <Compile Include="Assets\Scripts\GunFollow.cs" />
+    <Compile Include="Assets\Scripts\MainSceneUI.cs" />
     <Compile Include="Assets\Scripts\WebAttr.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/summer/Desktop/Summer/workplace/test/FishMaster/FishMasterDemo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
