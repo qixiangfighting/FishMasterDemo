@@ -56,6 +56,12 @@ public class GameController : MonoBehaviour
 
     public GameObject[] bullet5Gos;
 
+
+    public Sprite[] bgSprites;
+    public Image bgImage;
+    public GameObject seaWaveEffect;
+    public int bgIndex = 0;
+
     // 使用的是第几挡炮弹
     private int costIndex = 0;
 
@@ -75,6 +81,25 @@ public class GameController : MonoBehaviour
     {
         // bigTimer = bigCountdown;
         // smallTimer = smallCountdown;
+    }
+
+
+    void ChangeBg()
+    {
+        if (bgIndex != lv / 20)
+        {
+            bgIndex = lv / 20;
+            Instantiate(seaWaveEffect);
+
+            if (bgIndex >= 3)
+            {
+                bgImage.sprite = bgSprites[3];
+            }
+            else
+            {
+                bgImage.sprite = bgSprites[bgIndex];
+            }
+        }
     }
 
     void UpdateUI()
@@ -101,13 +126,12 @@ public class GameController : MonoBehaviour
 
         while (exp >= 1000 + 200 * lv)
         {
+            exp = exp - (1000 + 200 * lv);
             lv++;
             lvUpTips.SetActive(true);
             lvUpTips.transform.Find("Text").GetComponent<Text>().text = lv.ToString();
             StartCoroutine(lvUpTips.GetComponent<Ef_HideSelf>().HideSelf(0.6f));
             Instantiate(lvEffect);
-
-            exp = exp - (1000 + 200 * lv);
         }
 
         goldText.text = "$" + gold;
@@ -132,6 +156,7 @@ public class GameController : MonoBehaviour
         ChangeBulletCost();
         Fire();
         UpdateUI();
+        ChangeBg();
     }
 
     public void OnButtonPDown()
