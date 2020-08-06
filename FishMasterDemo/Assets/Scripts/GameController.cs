@@ -81,6 +81,18 @@ public class GameController : MonoBehaviour
     {
         // bigTimer = bigCountdown;
         // smallTimer = smallCountdown;
+
+
+        gold = PlayerPrefs.GetInt("gold", gold);
+
+        lv = PlayerPrefs.GetInt("lv", lv);
+        exp = PlayerPrefs.GetInt("exp", exp);
+        smallTimer = PlayerPrefs.GetFloat("scd", smallCountdown);
+        bigTimer = PlayerPrefs.GetFloat("bcd", bigCountdown);
+
+        UpdateUI();
+
+
     }
 
 

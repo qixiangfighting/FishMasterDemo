@@ -3474,7 +3474,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1033149369}
         m_MethodName: SwitchMute
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4230,6 +4230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingPanel: {fileID: 535272547}
+  muteToggle: {fileID: 906238863}
 --- !u!1 &1036131266
 GameObject:
   m_ObjectHideFlags: 0

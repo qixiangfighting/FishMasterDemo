@@ -12,12 +12,26 @@ public class AudioManager : MonoBehaviour
         get { return _instance; }
     }
 
+    public bool IsMure
+    {
+        get
+        {
+            return isMute;
+        }
+    }
+
     private bool isMute = false;
 
-    public void SwitchMuteState()
+    public void SwitchMuteState(bool isOn)
     {
-        isMute = !isMute;
+        isMute = !isOn;
 
+        DoMute();
+
+    }
+
+    private void DoMute()
+    {
         if (isMute)
         {
             bgmAudioSource.Pause();
@@ -26,11 +40,15 @@ public class AudioManager : MonoBehaviour
         {
             bgmAudioSource.Play();
         }
+
     }
 
     void Awake()
     {
         _instance = this;
+        isMute = PlayerPrefs.GetInt("mute", 0) != 0;
+
+        DoMute();
     }
 
     public AudioSource bgmAudioSource;

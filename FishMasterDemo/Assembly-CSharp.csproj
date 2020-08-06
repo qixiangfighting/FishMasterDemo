@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\GoldCollect.cs" />
     <Compile Include="Assets\Scripts\GunFollow.cs" />
     <Compile Include="Assets\Scripts\MainSceneUI.cs" />
+    <Compile Include="Assets\Scripts\StartSceneUi.cs" />
     <Compile Include="Assets\Scripts\WebAttr.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/summer/Desktop/Summer/workplace/test/FishMaster/FishMasterDemo/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
